@@ -1,0 +1,32 @@
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        l = 0
+        for r in range(len(nums)):
+            if nums[r]:
+                nums[l], nums[r] = nums[r], nums[l]
+                l += 1
+        return nums
+        
+improve the below code
+
+        class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        curr = 0
+        nxt = 1
+        
+        while nxt < len(nums) and curr < len(nums):
+            if nums[curr] == 0:
+                while nxt < len(nums):
+                    if nums[nxt] != 0:
+                        break
+                    nxt += 1
+                nums[curr], nums[nxt] = nums[nxt], nums[curr]
+            curr += 1
+        return nums
+        
