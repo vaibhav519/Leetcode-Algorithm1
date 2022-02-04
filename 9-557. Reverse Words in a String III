@@ -1,0 +1,12 @@
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        res = ""
+        t = s.split()
+        for i in range(len(t)):
+            res += t[i][::-1]
+            if i < len(t) - 1:
+                res += " "
+        return res
+        
+        
+ try solving without using [::-1]
