@@ -1,0 +1,44 @@
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+"""
+
+class Solution:
+    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if not root:
+            return root
+        queue = [root]
+        res = []
+        
+        while queue:
+            i = []
+            for _ in range(0, len(queue)):
+
+                node = queue.pop(0)
+
+                i.append(node)
+
+                if node.left:
+                    queue.append(node.left)
+
+                if node.right:
+                    queue.append(node.right)
+            
+            res.append(i)
+                
+        for i in res:
+            for j in range(len(i)):
+                if j == len(i) - 1:
+                    i[j].next = None
+                else:
+                    i[j].next = i[j + 1]
+        
+        return root
+                
+            
+optimize above code
