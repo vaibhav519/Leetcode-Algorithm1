@@ -1,0 +1,28 @@
+Iterative Solution:
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev, curr = None, head
+        
+        while curr:
+            nxt = curr.next # save next
+            curr.next = prev # add prev element to current's next
+            prev = curr # increment prev
+            curr = nxt # increment curr
+        return prev # curr will be at NULL and prev will be the last node\
+
+
+
+Recursive Solution:
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        
+        def recursion(prev, curr):
+            if not curr:
+                return prev
+            
+            tail = recursion(curr, curr.next)
+            curr.next = prev
+            
+            return tail
+        
+        return recursion(None, head)
