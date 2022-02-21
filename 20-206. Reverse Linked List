@@ -26,3 +26,6 @@ class Solution:
             return tail
         
         return recursion(None, head)
+
+
+dry run the above code
