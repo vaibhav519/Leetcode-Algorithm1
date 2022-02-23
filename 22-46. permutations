@@ -1,0 +1,16 @@
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        
+        def dfs(nums, a):
+            if not nums:
+                res.append(a)
+            
+            for i in range(len(nums)):
+                dfs(nums[:i] + nums[i+1:], a + [nums[i]])
+        
+        dfs(nums, [])
+        return res
+ 
+ 
+dry run the code again
