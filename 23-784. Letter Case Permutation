@@ -1,0 +1,20 @@
+class Solution:
+    def letterCasePermutation(self, s: str) -> List[str]:
+        res = [""]
+        
+        for ch in s:
+            temp = []
+            if ch.isalpha():
+                for r in res:
+                    temp.append(r + ch.lower())
+                    temp.append(r + ch.upper())
+            else:
+                for r in res:
+                    temp.append(r + ch)
+            
+            res = temp
+                
+        return res
+
+
+dry run again
