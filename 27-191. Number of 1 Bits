@@ -1,4 +1,4 @@
-<b> Solution 1 </b>
+Solution 1
 
 class Solution:
     def hammingWeight(self, n: int) -> int:
@@ -9,7 +9,7 @@ class Solution:
                 count += 1
         return count
         
- <b> Solution 2 </b>
+Solution 2
  
  class Solution:
     def hammingWeight(self, n: int) -> int:
