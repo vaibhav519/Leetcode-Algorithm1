@@ -20,6 +20,7 @@ class Solution:
             return -1
 
 
+Algorithm1 redone
 Solution 2:
 
 def search(self, nums: List[int], target: int) -> int:
@@ -29,10 +30,10 @@ def search(self, nums: List[int], target: int) -> int:
     start, end = 0, len(nums) - 1   		
 	
 	# used <= instead of < to satisfy the condition when there is only 1 element and if you
-	# are not using this mid = (start + ((end - start) // 2)) to calculate mid
+	
 	
     while start <= end:
-        mid = (start + end) // 2  # normal floor division
+        mid = (start + end) // 2  # normal floor division and not using this mid = lo + Math.floor((hi - lo) / 2) because there is no overflow in python
         if nums[mid] > target:  
             end = mid - 1
         elif nums[mid] < target:
