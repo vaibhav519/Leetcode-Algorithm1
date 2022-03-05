@@ -25,6 +25,23 @@ class Solution:
             else:
                 return mid + 1
                 
- try to optimize a bit more, check the flow once again see if you reduce some lines  
- check solutions on youtube as well
+ try to optimize a bit more, check the flow once again see if you reduce some lines✅  
+ check solutions on youtube as well ✅
  
+Algorithm1 repeat
+Solution 2:
+
+def searchInsert(self, nums: List[int], target: int) -> int:
+    l = 0
+    r = len(nums)
+    
+    while l < r:
+        mid = (l + r) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            l = mid + 1
+        else:
+            r = mid
+    
+    return l
