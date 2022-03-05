@@ -12,5 +12,18 @@ class Solution:
                 left = mid + 1
         return left
         
-        why left = mid + 1
-        in what scenario we use left = mid, left = mid + 1 and right = mid, right = mid - 1?
+why left = mid + 1 ✅
+in what scenario we use left = mid, left = mid + 1 and right = mid, right = mid - 1? ✅
+
+
+def firstBadVersion(self, n) -> int:
+    left, right = 1, n
+    
+    while left < right:
+        mid = (left + right) // 2
+        if isBadVersion(mid):
+            right = mid  # mid can be either first bad or a version after first
+        else:
+            left = mid + 1  # if isBadVersion(mid) returns false we can confidently exclude mid 
+    
+    return left             # returned left to satisfy the condition when n = 1
