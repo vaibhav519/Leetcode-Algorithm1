@@ -18,3 +18,33 @@ class Solution:
             return mid
         else:
             return -1
+
+
+Solution 2:
+
+def search(self, nums: List[int], target: int) -> int:
+	# len - 1 to avoid overflow but len(nums) can also be used when 
+	# you have to insert a element at the last (35. Search Insert Position)
+	
+    start, end = 0, len(nums) - 1   		
+	
+	# used <= instead of < to satisfy the condition when there is only 1 element and if you
+	# are not using this mid = (start + ((end - start) // 2)) to calculate mid
+	
+    while start <= end:
+        mid = (start + end) // 2  # normal floor division
+        if nums[mid] > target:  
+            end = mid - 1
+        elif nums[mid] < target:
+            start = mid + 1
+        else:
+            return mid
+    return -1
+    
+If in doubt between mid + 1/-1 and mid, just simply use mid + 1 when you have a if condition like this mid < target.
+This way you are making sure that mid != target and you can safely exclude mid, but in else condition you have to use
+left/right = mid because mid can or cannot be equal to the target.
+
+And if stuck in infinite loop always think of the case when there are 2 elements left
+
+Here https://leetcode.com/problems/binary-search/discuss/423162/Binary-Search-101 you can find a more detailed explanation.
