@@ -16,6 +16,9 @@ why left = mid + 1 ✅
 in what scenario we use left = mid, left = mid + 1 and right = mid, right = mid - 1? ✅
 
 
+Algorithm1 repeat
+Solution 2:
+
 def firstBadVersion(self, n) -> int:
     left, right = 1, n
     
