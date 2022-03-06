@@ -11,3 +11,8 @@ class Solution:
                 end -= 1
 
         return res[::-1]
+
+
+Algorithm1 Repeat:
+
+same solution tried insert but it is less efficient as compared to append
