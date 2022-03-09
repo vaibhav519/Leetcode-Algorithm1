@@ -41,3 +41,25 @@ class Solution:
             t.next = t.next.next
         
             return head
+            
+A more optimized solution
+Algorithm1 repeat
+
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        fast = slow = head
+        
+        while n:                      # moving the fast pointer to n nodes ahead
+            fast = fast.next          # so that the gap between slow and fast = n
+            n -= 1
+        
+        if not fast:                  # if n = length of linked list
+            return head.next
+        
+        while fast.next:
+            fast = fast.next
+            slow = slow.next
+            
+        slow.next = slow.next.next    # removing the given node
+        
+        return head
