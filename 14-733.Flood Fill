@@ -15,4 +15,26 @@ class Solution:
         
         return image
         
-  analyze this questions by making a stack
+analyze this questions by making a stack ✅
+ALgorithm1 Repeat:  
+  
+def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
+    row = len(image)
+    col = len(image[0])
+    curColor = image[sr][sc]   
+    
+    def dfs(x, y):
+        
+        if 0 <= x < row and 0 <= y < col and image[x][y] == curColor and image[x][y] != newColor:  
+            image[x][y] = newColor
+            
+            dfs(x - 1, y)   #UP
+            dfs(x + 1, y)   #DOWN
+            dfs(x, y + 1)   #RIGHT
+            dfs(x, y - 1)   #LEFT
+        
+    dfs(sr, sc)
+    
+    return image
+If anyone wondering why we check image[x][y] != newColor, it is because if curColor = newColor then even though you keep on changing,
+it will be the same color and will result in a loop and hence resulting in stack overflow.
