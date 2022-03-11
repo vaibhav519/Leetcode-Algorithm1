@@ -14,3 +14,22 @@ class Solution:
         
         
  we have to go through this code again
+
+
+Algorithm1 Repeat
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        l = []
+        m = 0
+        
+        for i in s:
+            if i not in l:
+                l.append(i)
+                if len(l) > m:
+                    m = len(l)
+            else:
+                del l[: l.index(i) + 1]
+                l.append(i)
+                
+        return m
