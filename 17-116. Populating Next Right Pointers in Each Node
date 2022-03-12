@@ -41,4 +41,29 @@ class Solution:
         return root
                 
             
-optimize above code
+optimize above code ✅
+algo1 repeat
+
+def connect(self, root: 'Node') -> 'Node':
+    if not root:
+        return root
+    
+    q = collections.deque()
+    q.append(root)
+    
+    while q:
+        curr = q.popleft()
+        
+        if curr.left:
+            curr.left.next = curr.right             # To make a link between left and right node
+            
+            if curr.next:
+                curr.right.next = curr.next.left    # To make a link between right and left node, in ex1 (5 -> 6)
+                
+            q.append(curr.left)
+            q.append(curr.right)
+            
+        else:
+            break
+            
+    return root
