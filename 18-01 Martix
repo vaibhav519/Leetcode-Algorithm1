@@ -17,4 +17,27 @@ class Solution:
                     q.append((newX, newY))
         return matrix
 
-Go through the solution once again
+Go through the solution once again ✅
+Algo1 repeat
+
+class Solution:
+    def updateMatrix(self, matrix: List[List[int]]) -> List[List[int]]:
+        q = deque()
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j] == 0:
+                    q.append((i, j))
+                else:
+                    matrix[i][j] = '#' # marked as unvisited
+
+        while q:
+            x, y = q.popleft()
+            for r, c in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                newX, newY = x+r, y+c
+                if 0 <= newX < len(matrix) and 0 <= newY < len(matrix[0]) and matrix[newX][newY] == '#':
+                    matrix[newX][newY] = matrix[x][y] + 1
+                    q.append((newX, newY))
+        return matrix
+    
+    
+# if we run bfs from whenever we incounter 1 then the time complexity will be 1 * O(n * m)
